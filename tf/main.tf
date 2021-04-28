@@ -4,34 +4,34 @@ provider "grafana" {
   org_id = 1
 }
 
-resource "grafana_data_source" "influxdb" {
-  type          = "influxdb"
-  name          = "tf_influxdb"
-  url           = "http://influxdb:8086/"
-  username      = "admin"
-  password      = "admin"
-  database_name = "test"
-
-}
-
 resource "grafana_folder" "gen_folder" {
   title = "Generated Dashboards"
 }
 
-data "template_file" "temp" {
-  template = "${file("${path.module}/templates/dashboards/example.json")}"
-  vars = {
-    testvar = "app1"
-  }
+module "metrics_panel_one" {
+  source = "./modules/generated-panel"
+  for_each = var.api_services
+  app_name = each.key
 }
 
-resource "local_file" "foo" {
-    content     = data.template_file.temp.rendered
-    filename = "${path.module}/generated/dashboards/foo.json"
+module "metrics_panel_two" {
+  source = "./modules/generated-panel"
+  for_each = var.api_services
+  app_name = each.key
+}
+
+module "metrics_dashboard" {
+  source = "./modules/generated-dashboard"
+  for_each = var.api_services
+  app_name = each.key
+  panels = [
+    module.metrics_panel_one[each.key].panel_json,
+    module.metrics_panel_two[each.key].panel_json
+  ]
 }
 
 resource "grafana_dashboard" "metrics" {
-  //count = length(var.api_services)
+  for_each = module.metrics_dashboard
   folder = grafana_folder.gen_folder.id
-  config_json = data.template_file.temp.rendered
+  config_json = each.value.dashboard_json
 }

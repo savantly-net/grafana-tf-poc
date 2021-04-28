@@ -1,7 +1,7 @@
 variable "api_services" {
-  type = list
+  type = set(string)
   default = [
-      "app1",
-      "app2"
+      "my-test-app1",
+      "my-other-app"
   ]
 }
