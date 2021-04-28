@@ -22,96 +22,35 @@
       ${panel},
       %{ endfor ~}
       {
-  "type": "graph",
-  "title": "dummy panel",
-  "gridPos": {
-    "x": 0,
-    "y": 0,
-    "w": 12,
-    "h": 9
-  },
-  "id": 23763571993,
-  "targets": [
-    {
-      "refId": "A",
-      "queryType": "randomWalk"
-    }
-  ],
-  "options": {
-    "alertThreshold": true
-  },
-  "fieldConfig": {
-    "defaults": {},
-    "overrides": []
-  },
-  "pluginVersion": "7.5.4",
-  "renderer": "flot",
-  "yaxes": [
-    {
-      "label": null,
-      "show": true,
-      "logBase": 1,
-      "min": null,
-      "max": null,
-      "format": "short"
-    },
-    {
-      "label": null,
-      "show": true,
-      "logBase": 1,
-      "min": null,
-      "max": null,
-      "format": "short"
-    }
-  ],
-  "xaxis": {
-    "show": true,
-    "mode": "time",
-    "name": null,
-    "values": [],
-    "buckets": null
-  },
-  "yaxis": {
-    "align": false,
-    "alignLevel": null
-  },
-  "lines": true,
-  "fill": 1,
-  "linewidth": 1,
-  "dashLength": 10,
-  "spaceLength": 10,
-  "pointradius": 2,
-  "legend": {
-    "show": true,
-    "values": false,
-    "min": false,
-    "max": false,
-    "current": false,
-    "total": false,
-    "avg": false
-  },
-  "nullPointMode": "null",
-  "tooltip": {
-    "value_type": "individual",
-    "shared": true,
-    "sort": 0
-  },
-  "aliasColors": {},
-  "seriesOverrides": [],
-  "thresholds": [],
-  "timeRegions": [],
-  "fillGradient": 0,
-  "dashes": false,
-  "hiddenSeries": false,
-  "points": false,
-  "bars": false,
-  "stack": false,
-  "percentage": false,
-  "steppedLine": false,
-  "timeFrom": null,
-  "timeShift": null,
-  "datasource": null
-}
+        "type": "text",
+        "title": "info",
+        "gridPos": {
+          "x": 0,
+          "y": 1,
+          "w": 12,
+          "h": 2
+        },
+        "id": 23763571993,
+        "targets": [
+          {
+            "refId": "A",
+            "queryType": "randomWalk"
+          }
+        ],
+        "options": {
+          "mode": "markdown",
+          "content": "This dashboard was generated"
+        },
+        "fieldConfig": {
+          "defaults": {},
+          "overrides": []
+        },
+        "pluginVersion": "7.5.4",
+        "timeFrom": null,
+        "timeShift": null,
+        "description": "",
+        "datasource": null
+      }
     ],
     "schemaVersion": 27,
     "style": "dark",
