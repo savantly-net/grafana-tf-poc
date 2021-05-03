@@ -11,13 +11,13 @@
     "fill": 1,
     "fillGradient": 0,
     "gridPos": {
-      "h": 9,
-      "w": 12,
-      "x": 0,
-      "y": 0
+      "h": ${pos.h},
+      "w": ${pos.w},
+      "x": ${pos.x},
+      "y": ${pos.y}
     },
     "hiddenSeries": false,
-    "id": 2,
+    "id": ${id},
     "legend": {
       "avg": false,
       "current": false,
@@ -52,7 +52,7 @@
     "timeFrom": null,
     "timeRegions": [],
     "timeShift": null,
-    "title": "${app_name}",
+    "title": "${name} ${app_name}",
     "tooltip": {
       "shared": true,
       "sort": 0,
